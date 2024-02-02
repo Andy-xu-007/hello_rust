@@ -6,7 +6,7 @@ fn main() {
 
     // let config = args_parse(&args);
     let config = Config::build(&args).unwrap_or_else(|err| {
-        println!("problem parsing arguments : {err}");
+        eprintln!("problem parsing arguments : {err}");
         process::exit(-1);
     });
     // println!("query is {} ", config.query);
@@ -25,7 +25,7 @@ fn main() {
 
     // 只关心错误检测，并不需要unwrap_or_else 来返回未封装的值，因为它只会是()
     if let Err(e) = minigrep::run(config) {
-        println!("Application err is {e}");
+        eprintln!("Application err is {e}");
         process::exit(-1);
     }
 
