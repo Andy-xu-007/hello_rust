@@ -1,11 +1,17 @@
+use core::num;
+
 fn main() {
-    let a = [1, 2, 3];
-    let ap = format!("{:p}", &a);
-    let a0p = format!("{:p}", &a[0]);
+    let number_list = vec![34, 45, 56, 67];
+    let mut largest = &number_list[0];
+    
+    for number in &number_list {
+        if number > largest {
+            largest = number;
+        }
+    }
 
-    println!("{ap}");
-    println!("{a0p}");
+    println!("{}", largest);
+    println!("{}", number_list[0]);
 
-    println!("{}", ap == a0p);
 
 }
