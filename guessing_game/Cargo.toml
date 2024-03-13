@@ -7,3 +7,10 @@ edition = "2021"
 
 [dependencies]
 rand = "0.8.5"
+
+# opt−level 设置控制Rust 会对代码进行何种程度的优化
+# 这个配置的值从0 到3。越高的优化级别需要更多的时间编译
+[profile.dev]
+opt-level = 0
+[profile.release]
+opt-level = 3

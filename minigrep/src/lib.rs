@@ -13,12 +13,32 @@ impl Config {
             return Err("not enough arguments");
         }
 
+        // build没有args所有权
         let query = args[1].clone();
         let file_path = args[2].clone();
         // IGNORE_CASE=1 cargo run to poem.txt
         let ignore_case = env::var("IGNORE_CASE").is_ok();
 
         Ok(Config {query, file_path, ignore_case})
+    }
+
+    pub fn build_iter(
+        mut args: impl Iterator<Item = String>,
+    ) -> Result<Config, &'static str> {
+
+        let query = match args.next() {
+            Some(arg) => arg,
+            None => return Err("Didn't get a query string"),
+        };
+
+        let file_path = match args.next() {
+            Some(arg) => arg,
+            None => return Err("Didn't get a file_path string"),
+        };
+
+        let ignore_case = env::var("IGNORE_CASE").is_ok();
+
+        Ok(Config { query, file_path, ignore_case})
     }
 }
 
@@ -49,6 +69,13 @@ pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
         }
     }
     results
+}
+
+pub fn search_iter<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
+    contents
+    .lines()
+    .filter(|line| line.contains(query))
+    .collect()
 }
 
 pub fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {

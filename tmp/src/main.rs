@@ -1,17 +1,12 @@
-use core::num;
 
 fn main() {
-    let number_list = vec![34, 45, 56, 67];
-    let mut largest = &number_list[0];
-    
-    for number in &number_list {
-        if number > largest {
-            largest = number;
-        }
+    let mut m = 1;
+    for i in 12..14 {
+        m += 1;
+        let n = i - 12..i;
+        println!("{:?}", n);
     }
 
-    println!("{}", largest);
-    println!("{}", number_list[0]);
-
-
+    println!("end .. {m}");
 }
+

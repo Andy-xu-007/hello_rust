@@ -5,7 +5,14 @@ fn main() {
     let args: Vec<String> = env::args().collect();
 
     // let config = args_parse(&args);
+    // build 没有 args的所有权
     let config = Config::build(&args).unwrap_or_else(|err| {
+        eprintln!("problem parsing arguments : {err}");
+        process::exit(-1);
+    });
+
+    // env::args 函数返回一个迭代器，并将所有权传递build
+    let config = Config::build_iter(env::args()).unwrap_or_else(|err| {
         eprintln!("problem parsing arguments : {err}");
         process::exit(-1);
     });
