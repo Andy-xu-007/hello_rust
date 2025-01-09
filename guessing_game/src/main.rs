@@ -15,6 +15,7 @@ fn main() {
         .read_line(&mut guess)
         .expect("failed to read line");
 
+        // trim 方法会消除 \n 或者 \r\n 或者空格
         // let guess: u32 = guess.trim().parse().expect("Plesase type a number!");
         let guess: u32 = match guess.trim().parse() {
             Ok(num) => num,
