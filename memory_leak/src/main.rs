@@ -14,9 +14,9 @@ fn main() {
     println!("b next item = {:?}", b.tail());
 
     // 修改a 使其指向b 而不是Nil，这就创建了一个循环
-    if let Some(link) = a.tail() {
-        *link.borrow_mut() = Rc::clone(&b);
-    }
+    // if let Some(link) = a.tail() {
+    //     *link.borrow_mut() = Rc::clone(&b);
+    // }
 
     println!("b rc count after changing a = {}", Rc::strong_count(&b));
     println!("a rc count after changing a = {}", Rc::strong_count(&a));

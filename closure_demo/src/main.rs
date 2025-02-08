@@ -7,7 +7,7 @@ fn main() {
     
     let mut list2 = vec![1, 2, 3];
     let mut borrows_mutably = || list2.push(7);
-    borrows_mutably();
+    // println!("Before calling closure: {list2:?}");
     borrows_mutably();
     println!("before calling closure: {:?}", list2);
 

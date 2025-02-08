@@ -13,10 +13,11 @@ fn main() {
 
     // 解引用
     assert_eq!(*y, 5);
+    assert_eq!(*(y.deref()), 5);
     assert_eq!(x, 5);
     assert_eq!(*z, 5);
 
-    let m = MyBox::new(x);
+    let m: MyBox<i32> = MyBox::new(x);
     assert_eq!(5, *m);
 
     let n = MyBox::new(String::from("rust"));
@@ -25,7 +26,7 @@ fn main() {
     let c: CustomSmartPointer = CustomSmartPointer {data: String::from("my stuff")};
     let d = CustomSmartPointer {data: String::from("other stuff")};
 
-    drop(c);
+    drop(c);  // std::mem::drop
 
     println!("CustomSmartPointer created.");
 

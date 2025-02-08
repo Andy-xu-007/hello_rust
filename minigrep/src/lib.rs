@@ -26,6 +26,9 @@ impl Config {
         mut args: impl Iterator<Item = String>,
     ) -> Result<Config, &'static str> {
 
+        // 第一个值返回的是程序自身的名字
+        args.next();
+
         let query = match args.next() {
             Some(arg) => arg,
             None => return Err("Didn't get a query string"),
@@ -72,6 +75,7 @@ pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
 }
 
 pub fn search_iter<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
+    // 函数式编程
     contents
     .lines()
     .filter(|line| line.contains(query))
