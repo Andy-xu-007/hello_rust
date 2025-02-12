@@ -1,1 +1,0 @@
-/Users/xilin/andy/github/hello_rust/shirt_company/target/debug/shirt_company: /Users/xilin/andy/github/hello_rust/shirt_company/src/lib.rs /Users/xilin/andy/github/hello_rust/shirt_company/src/main.rs
