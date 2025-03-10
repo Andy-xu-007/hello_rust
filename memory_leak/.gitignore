@@ -2,6 +2,7 @@
 Copy
 # 忽略 Rust 编译输出目录
 /target/
+/target/.rustc_info.json
 
 
 # 忽略 Cargo 的依赖缓存（旧版）
