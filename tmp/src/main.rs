@@ -1,12 +1,8 @@
-
-fn main() {
-    let mut m = 1;
-    for i in 12..14 {
-        m += 1;
-        let n = i - 12..i;
-        println!("{:?}", n);
-    }
-
-    println!("end .. {m}");
+use proc_macro;
+#[some_attribute]
+pub fn some_name(input: TokenStream) -> TokenStream {
 }
 
+fn main() {}
+
+ph_app来源数据计算
