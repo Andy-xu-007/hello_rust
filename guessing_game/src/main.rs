@@ -19,7 +19,7 @@ fn main() {
         // let guess: u32 = guess.trim().parse().expect("Plesase type a number!");
         let guess: u32 = match guess.trim().parse() {
             Ok(num) => num,
-            Err(_) => continue,  // 不能漏掉逗号
+            Err(_) => continue,  // 不能漏掉逗号，返回 ！值，也就是不返回
         };
         match guess.cmp(&secret_numner) {
             Ordering::Less => println!("Too small!"),
