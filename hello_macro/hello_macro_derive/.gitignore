@@ -1,0 +1,13 @@
+# 忽略 Rust 编译输出目录
+/target/
+.rustc_info.json
+
+# 忽略 Cargo 的依赖缓存（旧版）
+Cargo.lock  # 如果是二进制项目（应用），不要忽略；如果是库项目，可以忽略
+
+# 忽略 IDE 配置文件（如 VSCode）
+.vscode/
+
+# 忽略其他临时文件或日志
+*.log
+*.bk

@@ -1,12 +1,9 @@
+use hello_macro::HelloMacro;
+use hello_macro_derive::HelloMacro;
+
+#[derive(HelloMacro)]
+struct Pancakes;
 
 fn main() {
-    let mut m = 1;
-    for i in 12..14 {
-        m += 1;
-        let n = i - 12..i;
-        println!("{:?}", n);
-    }
-
-    println!("end .. {m}");
+    Pancakes::hello_macro();
 }
-
